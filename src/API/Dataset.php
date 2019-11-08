@@ -5,6 +5,7 @@ namespace Tngnt\PBI\API;
 use Tngnt\PBI\Client;
 use Tngnt\PBI\Model\Dataset as DatasetModel;
 use Tngnt\PBI\Response;
+use function sprintf;
 
 /**
  * Class Dataset
@@ -62,6 +63,17 @@ class Dataset
         $url = $this->getUrl($groupId);
 
         $response = $this->client->request(client::METHOD_POST, $url, $dataset);
+
+        return $this->client->generateResponse($response);
+    }
+
+    public function refreshDataset(string $id, string $notifyOption = 'MailOnCompletion') : Response
+    {
+        $url = self::DATASET_URL . '/' . $id . '/refreshes';
+
+        $response = $this->client->request(client::METHOD_POST, $url, [
+            'notifyOption' => $notifyOption,
+        ]);
 
         return $this->client->generateResponse($response);
     }
