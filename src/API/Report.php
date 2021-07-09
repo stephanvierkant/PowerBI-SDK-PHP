@@ -14,7 +14,7 @@ class Report
 {
     const REPORT_URL = "https://api.powerbi.com/v1.0/myorg/reports";
     const GROUP_REPORT_URL = "https://api.powerbi.com/v1.0/myorg/groups/%s/reports";
-    const GROUP_REPORT_REBIND_URL = "https://api.powerbi.com/v1.0/myorg/groups/%s/reports/%s/";
+    const GROUP_REPORT_REBIND_URL = "https://api.powerbi.com/v1.0/myorg/groups/%s/reports/%s/Rebind";
     const GROUP_REPORT_EMBED_URL = "https://api.powerbi.com/v1.0/myorg/groups/%s/reports/%s/GenerateToken";
 
     /**
